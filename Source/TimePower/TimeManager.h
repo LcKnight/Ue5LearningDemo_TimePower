@@ -19,12 +19,28 @@ public:
 	UFUNCTION(BlueprintCallable)
 	float GetTimeFactor();
 
+	//Time Reverse control
+	UFUNCTION(BlueprintCallable)
+	void BeginTimeReverse();
+
+	UFUNCTION(BlueprintCallable)
+	void EndTimeReverse();
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-private:	
 	// THis is the current active factor of time
+	//UPROPERTY(BlueprintReadOnly)
+protected:
+	// This is the current active factor of time
 	UPROPERTY(BlueprintReadOnly)
+	float CurrentTimeFactor = 1.0f;
+
+	//magic time values
+	UPROPERTY(BlueprintReadWrite)
+	float NormalTimeFactor = 1.0f;
+	UPROPERTY(BlueprintReadWrite)
+	float ReverseTimeFactor = -3.0f;
 
 };

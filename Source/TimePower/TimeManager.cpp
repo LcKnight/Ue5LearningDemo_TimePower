@@ -11,10 +11,28 @@ ATimeManager::ATimeManager()
 
 }
 
+float ATimeManager::GetTimeFactor()
+{
+	return CurrentTimeFactor;
+}
+
+void ATimeManager::BeginTimeReverse()
+{
+	CurrentTimeFactor = ReverseTimeFactor;
+}
+
+void ATimeManager::EndTimeReverse()
+{
+	CurrentTimeFactor = NormalTimeFactor;
+}
+
 // Called when the game starts or when spawned
 void ATimeManager::BeginPlay()
 {
 	Super::BeginPlay();
+
+	//Apply normal time
+	CurrentTimeFactor = NormalTimeFactor;
 	
 }
 
